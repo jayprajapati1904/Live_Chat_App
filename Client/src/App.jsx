@@ -8,6 +8,7 @@ import SettingPage from "./pages/SettingPage";
 import { authstore } from "./store/authStore";
 import { useEffect } from "react";
 import { Loader } from "lucide-react";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const { authUser, checkAuth, ischeckingAuth } = authstore();
@@ -46,6 +47,8 @@ function App() {
           />
           <Route path="/setting" element={<SettingPage />} />
         </Routes>
+
+        <Toaster />
       </div>
     </>
   );
