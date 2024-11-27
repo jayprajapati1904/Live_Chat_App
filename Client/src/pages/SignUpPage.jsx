@@ -60,8 +60,8 @@ const SignUpPage = () => {
 
       {/* Right Side */}
       <div className="flex-1 min-h-screen items-center justify-center p-5 ">
-        <div className="w-full max-w-md md:grid grid-cols-1 bg-[#e1e6d9] mt-10 shadow-lg rounded-xl py-8 px-5 ">
-          <div className="text-center mb-7">
+        <div className="w-full max-w-md md:grid grid-cols-1  mt-10 text-gray-200 rounded-xl py-10 px-5 ">
+          <div className="text-center mb-12">
             <div className="flex flex-col items-center gap-2 group">
               <div
                 className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center 
@@ -69,7 +69,7 @@ const SignUpPage = () => {
               >
                 <MessageSquare className="w-6 h-6 text-primary" />
               </div>
-              <h1 className="text-2xl font-bold mt-2 text-gray-800">
+              <h1 className="text-2xl font-bold mt-2 text-gray-600">
                 Create Account
               </h1>
               <p className="text-gray-500">
@@ -79,7 +79,7 @@ const SignUpPage = () => {
           </div>
           <Form layout="vertical">
             {/* Full Name Field */}
-            <Form.Item label="Full Name" required>
+            <Form.Item required>
               <Input
                 prefix={<User size={18} className="text-gray-500" />}
                 placeholder="Enter your full name"
@@ -87,12 +87,12 @@ const SignUpPage = () => {
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
                 }
-                className="border-gray-400 rounded-lg px-2.5 py-2.5 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition"
+                className="border-gray-400 rounded-lg px-2.5 py-2.5 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition mb-5"
               />
             </Form.Item>
 
             {/* Email Field */}
-            <Form.Item label="Email" required>
+            <Form.Item required>
               <Input
                 prefix={<Mail size={18} className="text-gray-500" />}
                 placeholder="Enter your email"
@@ -100,12 +100,12 @@ const SignUpPage = () => {
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
-                className="border-gray-400 rounded-lg px-2.5 py-2.5 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition"
+                className="border-gray-400 rounded-lg px-2.5 py-2.5 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition mb-5"
               />
             </Form.Item>
 
             {/* Password Field */}
-            <Form.Item label="Password" required>
+            <Form.Item required>
               <Input.Password
                 prefix={<Lock size={18} className="text-gray-500" />}
                 placeholder="Enter your password"
@@ -128,7 +128,7 @@ const SignUpPage = () => {
                     />
                   )
                 }
-                className="border-gray-400 rounded-lg px-2.5 py-2.5 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition"
+                className="border-gray-400 rounded-lg px-2.5 py-2.5 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition mb-5"
               />
             </Form.Item>
 
@@ -139,7 +139,7 @@ const SignUpPage = () => {
                 block
                 loading={isSignupUser}
                 onClick={handleSubmit}
-                className="bg-primary hover:bg-primary-dark rounded-lg py-2 font-semibold text-white transition"
+                className="bg-primary hover:bg-primary-dark rounded-lg py-5 font-semibold text-white transition "
               >
                 {isSignupUser ? (
                   <>

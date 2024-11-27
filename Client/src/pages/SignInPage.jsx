@@ -34,9 +34,9 @@ const SignInPage = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row max-h-screen">
+    <div className="flex flex-col md:flex-row min-h-screen mt-10">
       {/* Left Side */}
-      <div className="mt-8 flex-1 text-white flex flex-col justify-center items-center p-5">
+      <div className="mt-10 flex-1 text-white flex flex-col justify-center items-center p-5">
         <h1 className="text-4xl font-bold mb-4 text-center text-gray-300">
           Welcome back to <span className="text-red-400">Live Chat</span>
         </h1>
@@ -47,8 +47,8 @@ const SignInPage = () => {
       </div>
 
       {/* Right Side */}
-      <div className="flex-1 min-h-screen items-center justify-center p-5 ">
-        <div className="w-full max-w-md bg-[#e1e6d9] mt-7 shadow-lg rounded-xl py-8 px-5 ">
+      <div className="flex-1 min-h-screen items-center justify-center p-5 mt-15   ">
+        <div className="w-full max-w-md  mt-7  rounded-xl py-8 px-5 ">
           <div className="text-center mb-7">
             <div className="flex flex-col items-center gap-2 group">
               <div
@@ -57,13 +57,13 @@ const SignInPage = () => {
               >
                 <MessageSquare className="w-6 h-6 text-primary" />
               </div>
-              <h1 className="text-2xl font-bold mt-2 text-gray-800">Sign In</h1>
+              <h1 className="text-2xl font-bold mt-2 text-gray-600">Sign In</h1>
               <p className="text-gray-500">Access your account</p>
             </div>
           </div>
           <Form layout="vertical">
             {/* Email Field */}
-            <Form.Item label="Email" required>
+            <Form.Item required>
               <Input
                 prefix={<Mail size={18} className="text-gray-500" />}
                 placeholder="Enter your email"
@@ -71,12 +71,12 @@ const SignInPage = () => {
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
-                className="border-gray-400 rounded-lg px-2.5 py-2.5 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition"
+                className="border-gray-400 rounded-lg px-2.5 py-2.5 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition mt-5"
               />
             </Form.Item>
 
             {/* Password Field */}
-            <Form.Item label="Password" required>
+            <Form.Item required>
               <Input.Password
                 prefix={<Lock size={18} className="text-gray-500" />}
                 placeholder="Enter your password"
@@ -99,7 +99,7 @@ const SignInPage = () => {
                     />
                   )
                 }
-                className="border-gray-400 rounded-lg px-2.5 py-2.5 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition"
+                className="border-gray-400 rounded-lg px-2.5 py-2.5 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition mt-5"
               />
             </Form.Item>
 
@@ -110,7 +110,7 @@ const SignInPage = () => {
                 block
                 loading={isSigninUser}
                 onClick={handleSubmit}
-                className="bg-primary hover:bg-primary-dark rounded-lg py-2 font-semibold text-white transition"
+                className="bg-primary hover:bg-primary-dark rounded-lg py-5 font-semibold text-white transition mt-5"
               >
                 {isSigninUser ? (
                   <>

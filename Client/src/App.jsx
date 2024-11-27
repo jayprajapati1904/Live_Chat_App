@@ -45,7 +45,7 @@ function App() {
             path="/profile"
             element={authUser ? <ProfilePage /> : <Navigate to={"/signin"} />}
           />
-          <Route path="/setting" element={<SettingPage />} />
+          <Route path="/settings" element={<SettingPage />} />
         </Routes>
 
         <Toaster />
