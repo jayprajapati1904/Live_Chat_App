@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import { Form, Input, Button } from "antd";
-import { MessageSquare, Eye, EyeOff, Lock, Mail, User } from "lucide-react";
+import {
+  MessageSquare,
+  Eye,
+  EyeOff,
+  Lock,
+  Mail,
+  User,
+  Loader2,
+} from "lucide-react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { authstore } from "../store/authStore.js";
@@ -41,8 +49,8 @@ const SignUpPage = () => {
     <div className="flex flex-col md:flex-row h-screen">
       {/* Left Side */}
       <div className="mt-8 flex-1 text-white flex flex-col justify-center items-center p-5">
-        <h1 className="text-4xl font-bold mb-4 text-center">
-          Welcome to <span className="text-red-400">Live Chat</span>
+        <h1 className="text-4xl font-bold mb-4 text-center text-gray-300">
+          Welcome to <span className="text-red-400">Live Chat App</span>
         </h1>
         <p className="text-lg text-center max-w-md text-yellow-300">
           Connect with your friends and family in real-time. Join now and
@@ -52,12 +60,12 @@ const SignUpPage = () => {
 
       {/* Right Side */}
       <div className="flex-1 min-h-screen items-center justify-center p-5 ">
-        <div className="w-full max-w-md bg-[#e1e6d9] mt-10 shadow-lg rounded-xl py-8 px-5 ">
+        <div className="w-full max-w-md md:grid grid-cols-1 bg-[#e1e6d9] mt-10 shadow-lg rounded-xl py-8 px-5 ">
           <div className="text-center mb-7">
             <div className="flex flex-col items-center gap-2 group">
               <div
                 className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center 
-          group-hover:bg-primary/20 transition-colors"
+            group-hover:bg-primary/20 transition-colors"
               >
                 <MessageSquare className="w-6 h-6 text-primary" />
               </div>
@@ -73,33 +81,33 @@ const SignUpPage = () => {
             {/* Full Name Field */}
             <Form.Item label="Full Name" required>
               <Input
-                prefix={<User size={18} className="text-gray-400" />}
+                prefix={<User size={18} className="text-gray-500" />}
                 placeholder="Enter your full name"
                 value={formData.name}
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
                 }
-                className="border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition"
+                className="border-gray-400 rounded-lg px-2.5 py-2.5 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition"
               />
             </Form.Item>
 
             {/* Email Field */}
             <Form.Item label="Email" required>
               <Input
-                prefix={<Mail size={18} className="text-gray-400" />}
+                prefix={<Mail size={18} className="text-gray-500" />}
                 placeholder="Enter your email"
                 value={formData.email}
                 onChange={(e) =>
                   setFormData({ ...formData, email: e.target.value })
                 }
-                className="border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition"
+                className="border-gray-400 rounded-lg px-2.5 py-2.5 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition"
               />
             </Form.Item>
 
             {/* Password Field */}
             <Form.Item label="Password" required>
               <Input.Password
-                prefix={<Lock size={18} className="text-gray-400" />}
+                prefix={<Lock size={18} className="text-gray-500" />}
                 placeholder="Enter your password"
                 value={formData.password}
                 onChange={(e) =>
@@ -120,7 +128,7 @@ const SignUpPage = () => {
                     />
                   )
                 }
-                className="border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition"
+                className="border-gray-400 rounded-lg px-2.5 py-2.5 focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition"
               />
             </Form.Item>
 
@@ -133,7 +141,14 @@ const SignUpPage = () => {
                 onClick={handleSubmit}
                 className="bg-primary hover:bg-primary-dark rounded-lg py-2 font-semibold text-white transition"
               >
-                Sign Up
+                {isSignupUser ? (
+                  <>
+                    <Loader2 className="h-5 w-5 animate-spin" />
+                    Loading...
+                  </>
+                ) : (
+                  "Sign Up"
+                )}
               </Button>
             </Form.Item>
           </Form>
