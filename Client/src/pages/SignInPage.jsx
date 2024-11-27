@@ -37,10 +37,10 @@ const SignInPage = () => {
     <div className="flex flex-col md:flex-row min-h-screen pt-15">
       {/* Left Side */}
       <div className="pt-24 flex-1 text-white flex flex-col justify-center items-center p-5">
-        <h1 className="text-4xl font-bold mb-4 text-center text-gray-300">
+        <h1 className="text-4xl font-bold mb-4 text-center text-secondary">
           Welcome back to <span className="text-red-400">Live Chat</span>
         </h1>
-        <p className="text-lg text-center max-w-md text-yellow-300">
+        <p className="text-lg text-center max-w-md text-accent">
           Reconnect with your friends and enjoy real-time communication. Sign in
           to your account.
         </p>

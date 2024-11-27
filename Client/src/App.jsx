@@ -6,12 +6,14 @@ import SignInPage from "./pages/SignInPage";
 import ProfilePage from "./pages/ProfilePage";
 import SettingPage from "./pages/SettingPage";
 import { authstore } from "./store/authStore";
+import { useThemeStore } from "./store/useThemeStore";
 import { useEffect } from "react";
 import { Loader } from "lucide-react";
 import { Toaster } from "react-hot-toast";
 
 function App() {
   const { authUser, checkAuth, ischeckingAuth } = authstore();
+  const { theme } = useThemeStore();
 
   useEffect(() => {
     checkAuth();
@@ -26,7 +28,7 @@ function App() {
   }
   return (
     <>
-      <div>
+      <div data-theme={theme}>
         <Navbar />
         <Routes>
           <Route
