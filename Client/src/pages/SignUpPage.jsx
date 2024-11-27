@@ -46,9 +46,9 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row h-screen">
+    <div className="flex flex-col md:flex-row h-screen pt-15">
       {/* Left Side */}
-      <div className="mt-8 flex-1 text-white flex flex-col justify-center items-center p-5">
+      <div className="pt-24 flex-1 text-white flex flex-col justify-center items-center p-5">
         <h1 className="text-4xl font-bold mb-4 text-center text-gray-300">
           Welcome to <span className="text-red-400">Live Chat App</span>
         </h1>
@@ -59,7 +59,7 @@ const SignUpPage = () => {
       </div>
 
       {/* Right Side */}
-      <div className="flex-1 min-h-screen items-center justify-center p-5 ">
+      <div className="flex-1 min-h-screen items-center justify-center p-5 pt-5">
         <div className="w-full max-w-md md:grid grid-cols-1  mt-10 text-gray-200 rounded-xl py-10 px-5 ">
           <div className="text-center mb-12">
             <div className="flex flex-col items-center gap-2 group">

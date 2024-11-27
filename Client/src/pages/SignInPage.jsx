@@ -34,9 +34,9 @@ const SignInPage = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen mt-10">
+    <div className="flex flex-col md:flex-row min-h-screen pt-15">
       {/* Left Side */}
-      <div className="mt-10 flex-1 text-white flex flex-col justify-center items-center p-5">
+      <div className="pt-24 flex-1 text-white flex flex-col justify-center items-center p-5">
         <h1 className="text-4xl font-bold mb-4 text-center text-gray-300">
           Welcome back to <span className="text-red-400">Live Chat</span>
         </h1>
@@ -47,7 +47,7 @@ const SignInPage = () => {
       </div>
 
       {/* Right Side */}
-      <div className="flex-1 min-h-screen items-center justify-center p-5 mt-15   ">
+      <div className="flex-1 min-h-screen items-center justify-center p-5 pt-20 ">
         <div className="w-full max-w-md  mt-7  rounded-xl py-8 px-5 ">
           <div className="text-center mb-7">
             <div className="flex flex-col items-center gap-2 group">
