@@ -6,6 +6,7 @@ const cloudinary = require("../config/cloudinary.js");
 exports.signup = async (req, res) => {
   const { name, email, password } = req.body;
   // console.log(name, email, password);
+
   try {
     if (!name || !email || !password) {
       res.status(400).json({ message: "all fields are required" });
@@ -18,7 +19,7 @@ exports.signup = async (req, res) => {
     }
 
     const user = await User.findOne({ email });
-    console.log(user);
+    // console.log(user);
     if (user) {
       res.status(400).json({ message: "the email already exists or use" });
     }
@@ -32,7 +33,7 @@ exports.signup = async (req, res) => {
       password: hashpassword,
     });
 
-    console.log(newUser);
+    // console.log(newUser);
     if (newUser) {
       // generate jwt token here
       generateToken(newUser._id, res);

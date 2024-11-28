@@ -18,9 +18,9 @@ exports.getUsersForSiderbar = async (req, res) => {
 exports.getMessage = async (req, res) => {
   try {
     const { id: reciver } = req.params;
-    console.log(reciver);
+    // console.log(reciver);
     const myId = req.user._id;
-    console.log(myId);
+    // console.log(myId);
 
     const message = await Message.find({
       $or: [

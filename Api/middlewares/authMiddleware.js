@@ -3,7 +3,7 @@ const User = require("../models/User.js");
 
 const protect = async (req, res, next) => {
   const token = req.cookies.jwt;
-  console.log(token);
+  // console.log(token);
   if (!token)
     return res.status(401).json({ error: "No token, authorization denied" });
 
@@ -15,7 +15,7 @@ const protect = async (req, res, next) => {
     }
     const user = await User.findById(decoded.id).select("-password");
 
-    console.log(user);
+    // console.log(user);
     if (!user) {
       res.status(401).json({ message: "user not found" });
     }

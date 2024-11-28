@@ -19,7 +19,7 @@ function App() {
     checkAuth();
   }, [checkAuth]);
 
-  console.log({ authUser });
+  // console.log({ authUser });
 
   if (!authUser || ischeckingAuth) {
     <div className="flex items-center justify-center h-screen">
