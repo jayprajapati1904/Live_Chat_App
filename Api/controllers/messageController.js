@@ -1,5 +1,6 @@
 const User = require("../models/User.js");
 const Message = require("../models/Message.js");
+const mongoos = require("mongoose");
 
 exports.getUsersForSiderbar = async (req, res) => {
   try {
@@ -16,7 +17,7 @@ exports.getUsersForSiderbar = async (req, res) => {
 
 exports.getMessage = async (req, res) => {
   try {
-    const { id: reciver } = await req.params;
+    const { id: reciver } = req.params;
     const myId = req.user._id;
 
     const message = await Message.find({
