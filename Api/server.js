@@ -5,11 +5,11 @@ const authRoutes = require("./routes/authRoutes.js");
 const messageRoutes = require("./routes/messageRoutes.js");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const { app, server } = require("../Api/config/socket.js");
 
 dotenv.config();
 connectDB();
 
-const app = express();
 // Increase payload size limit
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
@@ -24,6 +24,6 @@ app.use(
 app.use("/api/auth", authRoutes);
 app.use("/api/message", messageRoutes);
 
-app.listen(process.env.PORT || 5000, () => {
+server.listen(process.env.PORT || 5000, () => {
   console.log(`Server running on port ${process.env.PORT || 5000}`);
 });
