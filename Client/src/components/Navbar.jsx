@@ -19,6 +19,7 @@ export default function Navbar() {
     "nord",
     "corporate",
     "retro",
+    "synthwave",
   ]; // Add your themes here
 
   return (
