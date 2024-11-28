@@ -1,6 +1,6 @@
 const User = require("../models/User.js");
 const Message = require("../models/Message.js");
-const mongoos = require("mongoose");
+const cloudinary = require("../config/cloudinary.js");
 
 exports.getUsersForSiderbar = async (req, res) => {
   try {
@@ -18,7 +18,9 @@ exports.getUsersForSiderbar = async (req, res) => {
 exports.getMessage = async (req, res) => {
   try {
     const { id: reciver } = req.params;
+    console.log(reciver);
     const myId = req.user._id;
+    console.log(myId);
 
     const message = await Message.find({
       $or: [
@@ -48,7 +50,7 @@ exports.sendMessage = async (req, res) => {
 
     let imageurl;
     if (image) {
-      const uploadimage = await cloudinary.uploader.upload(profilepic);
+      const uploadimage = await cloudinary.uploader.upload(image);
       imageurl = uploadimage.secure_url;
     }
 

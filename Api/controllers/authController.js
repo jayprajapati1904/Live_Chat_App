@@ -1,8 +1,7 @@
 const User = require("../models/User.js");
 const { generateToken } = require("../config/utils.js");
 const bcrypt = require("bcryptjs");
-const { v2: cloudinary } = require("../config/cloudinary.js");
-const { application } = require("express");
+const cloudinary = require("../config/cloudinary.js");
 
 exports.signup = async (req, res) => {
   const { name, email, password } = req.body;
@@ -86,12 +85,9 @@ exports.signout = async (req, res) => {
 
 exports.updateProfile = async (req, res) => {
   try {
-    console.log(req.headers);
-    console.log(req.body);
     const { profilepic } = await req.body;
-    console.log(profilepic);
+
     const userId = req.user._id;
-    console.log(userId);
 
     if (!profilepic) {
       return res.status(404).json({ message: "Profile pic is required" });
