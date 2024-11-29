@@ -1,10 +1,8 @@
 // Import required modules using ES module syntax
 import User from "../models/User.js";
-import Message from "../models/Message.js";
+import Message from "../models/message.js";
 import cloudinary from "../config/cloudinary.js";
 import { getReceiverSocketId, io } from "../config/socket.js";
-
-
 
 export const getUsersForSiderbar = async (req, res) => {
   try {
