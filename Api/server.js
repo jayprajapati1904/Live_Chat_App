@@ -28,10 +28,12 @@ app.use(
 app.use("/api/auth", authRoutes);
 app.use("/api/message", messageRoutes);
 
-app.use(express.static(path.join(__dirname, "./Client", "dist")));
+// Serve static files from the Client/dist directory
+app.use(express.static(path.join(__dirname, "../Client/dist")));
 
+// Handle all other routes by serving index.html
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./Client", "dist", "index.html"));
+  res.sendFile(path.join(__dirname, "../Client/dist/index.html"));
 });
 
 server.listen(process.env.PORT || 5000, () => {
