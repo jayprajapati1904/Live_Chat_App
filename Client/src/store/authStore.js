@@ -36,6 +36,7 @@ export const authstore = create((set, get) => ({
       get().connectSocket();
       toast.success("Account created successfully");
     } catch (error) {
+      console.error(error);
       toast.error(error.response.data.message);
     } finally {
       set({ isSignupUser: false });
@@ -51,6 +52,7 @@ export const authstore = create((set, get) => ({
       get().connectSocket();
       toast.success("Logged in successfully");
     } catch (error) {
+      console.error(error);
       toast.error(error.response.data.message);
     } finally {
       set({ isSigninUser: false });

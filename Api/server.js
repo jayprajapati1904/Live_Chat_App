@@ -20,7 +20,8 @@ app.use(express.urlencoded({ limit: "10mb", extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173", // Allow the frontend's origin
+    origin:
+      "http://localhost:5173" || "https://live-chat-app-nmmz.onrender.com", // Allow the frontend's origin
     credentials: true, // Allow cookies/credentials
   })
 );
