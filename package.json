@@ -1,0 +1,12 @@
+{
+  "name": "live_chat_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build" : "npm install --prefix Api && npm install --prefix Client && npm run build --prefix Client",
+    "start" :"npm run start --prefix Api"
+  },
+  "author": "",
+  "license": "ISC"
+}
