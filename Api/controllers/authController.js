@@ -1,9 +1,10 @@
-const User = require("../models/User.js");
-const { generateToken } = require("../config/utils.js");
-const bcrypt = require("bcryptjs");
-const cloudinary = require("../config/cloudinary.js");
+// Import required modules using ES module syntax
+import User from "../models/User.js";
+import { generateToken } from "../config/utils.js";
+import bcrypt from "bcryptjs";
+import cloudinary from "../config/cloudinary.js";
 
-exports.signup = async (req, res) => {
+export const signup = async (req, res) => {
   const { name, email, password } = req.body;
   // console.log(name, email, password);
 
@@ -54,7 +55,7 @@ exports.signup = async (req, res) => {
   }
 };
 
-exports.signin = async (req, res) => {
+export const signin = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email });
@@ -75,7 +76,7 @@ exports.signin = async (req, res) => {
   }
 };
 
-exports.signout = async (req, res) => {
+export const signout = async (req, res) => {
   try {
     res.cookie("jwt", "", { maxAge: 0 });
     res.status(200).json({ message: "user logged out successfully!!" });
@@ -84,7 +85,7 @@ exports.signout = async (req, res) => {
   }
 };
 
-exports.updateProfile = async (req, res) => {
+export const updateProfile = async (req, res) => {
   try {
     const { profilepic } = await req.body;
 
@@ -107,7 +108,7 @@ exports.updateProfile = async (req, res) => {
   }
 };
 
-exports.checkAuth = (req, res) => {
+export const checkAuth = (req, res) => {
   try {
     if (!req.user) {
       return res.status(401).json({ error: "Unauthorized" }); // Use return to stop further execution

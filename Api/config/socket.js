@@ -1,6 +1,7 @@
-const { Server } = require("socket.io");
-const http = require("http");
-const express = require("express");
+// Import required modules using ES module syntax
+import { Server } from "socket.io";
+import http from "http";
+import express from "express";
 
 const app = express();
 const server = http.createServer(app);
@@ -11,9 +12,9 @@ const io = new Server(server, {
   },
 });
 
-const getReceiverSocketId = (userId) => {
+export function getReceiverSocketId(userId) {
   return userSocketMap[userId];
-};
+}
 
 // used to store online users
 const userSocketMap = {}; // {userId: socketId}
@@ -34,4 +35,4 @@ io.on("connection", (socket) => {
   });
 });
 
-module.exports = { io, app, server, getReceiverSocketId };
+export { io, app, server };

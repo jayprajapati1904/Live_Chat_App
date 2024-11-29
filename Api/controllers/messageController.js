@@ -1,9 +1,12 @@
-const User = require("../models/User.js");
-const Message = require("../models/Message.js");
-const cloudinary = require("../config/cloudinary.js");
-const { getReceiverSocketId, io } = require("../config/socket.js");
+// Import required modules using ES module syntax
+import User from "../models/User.js";
+import Message from "../models/Message.js";
+import cloudinary from "../config/cloudinary.js";
+import { getReceiverSocketId, io } from "../config/socket.js";
 
-exports.getUsersForSiderbar = async (req, res) => {
+
+
+export const getUsersForSiderbar = async (req, res) => {
   try {
     const getloggedinuser = req.user._id;
     const fillteredUser = await User.find({
@@ -16,7 +19,7 @@ exports.getUsersForSiderbar = async (req, res) => {
   }
 };
 
-exports.getMessage = async (req, res) => {
+export const getMessage = async (req, res) => {
   try {
     const { id: reciver } = req.params;
     // console.log(reciver);
@@ -43,7 +46,7 @@ exports.getMessage = async (req, res) => {
   }
 };
 
-exports.sendMessage = async (req, res) => {
+export const sendMessage = async (req, res) => {
   try {
     const { text, image } = req.body;
     const { id: reciver } = await req.params;

@@ -1,5 +1,6 @@
-const { v2: cloudinary } = require("cloudinary"); // Import Cloudinary v2
-const { config } = require("dotenv");
+// Import required modules using ES module syntax
+import { v2 as cloudinary } from "cloudinary";
+import { config } from "dotenv";
 
 config(); // Load environment variables
 
@@ -10,4 +11,4 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-module.exports = cloudinary;
+export default cloudinary;

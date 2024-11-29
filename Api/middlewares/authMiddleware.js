@@ -1,7 +1,7 @@
-const jwt = require("jsonwebtoken");
-const User = require("../models/User.js");
+import jwt from "jsonwebtoken";
+import User from "../models/User.js";
 
-const protect = async (req, res, next) => {
+export const protect = async (req, res, next) => {
   const token = req.cookies.jwt;
   // console.log(token);
   if (!token)
@@ -25,5 +25,3 @@ const protect = async (req, res, next) => {
     res.status(401).json({ error: "Invalid token" });
   }
 };
-
-module.exports = { protect };

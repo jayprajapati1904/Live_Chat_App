@@ -1,12 +1,13 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const connectDB = require("./config/db.js");
-const authRoutes = require("./routes/authRoutes.js");
-const messageRoutes = require("./routes/messageRoutes.js");
-const cookieParser = require("cookie-parser");
-const cors = require("cors");
-const { app, server } = require("../Api/config/socket.js");
-const path = require("path");
+// Import required modules using ES module syntax
+import express from "express";
+import dotenv from "dotenv";
+import connectDB from "./config/db.js";
+import authRoutes from "./routes/authRoutes.js";
+import messageRoutes from "./routes/messageRoutes.js";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import { app, server } from "../Api/config/socket.js";
+import path from "path";
 
 dotenv.config();
 connectDB();
