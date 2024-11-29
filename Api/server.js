@@ -20,8 +20,7 @@ app.use(express.urlencoded({ limit: "10mb", extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin:
-      "http://localhost:5173" || "https://live-chat-app-nmmz.onrender.com", // Allow the frontend's origin
+    origin: "http://localhost:5173", // Allow the frontend's origin
     credentials: true, // Allow cookies/credentials
   })
 );
@@ -29,13 +28,15 @@ app.use(
 app.use("/api/auth", authRoutes);
 app.use("/api/message", messageRoutes);
 
-// Serve static files from the Client/dist directory
-app.use(express.static(path.join(__dirname, "../Client/dist")));
+if (process.env.NODE_ENV === "production") {
+  // Serve static files from the Client/dist directory
+  app.use(express.static(path.join(__dirname, "../Client/dist")));
 
-// Handle all other routes by serving index.html
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../Client/dist/index.html"));
-});
+  // Handle all other routes by serving index.html
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../Client/dist/index.html"));
+  });
+}
 
 server.listen(process.env.PORT || 5000, () => {
   console.log(`Server running on port ${process.env.PORT || 5000}`);
